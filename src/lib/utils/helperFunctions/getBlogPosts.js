@@ -105,12 +105,15 @@ const genElementStart = (nodeType, indent, target) => {
             paragraphText = '<hr />'
             break;
         case 'embedded-asset-block':
+            console.log('Processing embedded-asset-block:', target?.fields?.file?.contentType);
             if (target?.fields?.file?.contentType === 'application/pdf') {
                 const pdfUrl = target.fields.file.url.startsWith('//')
                     ? `https:${target.fields.file.url}`
                     : target.fields.file.url;
+                console.log('Rendering PDF with URL:', pdfUrl);
                 paragraphText = `<br /><div class="blogPdf"><iframe src="${pdfUrl}" type="application/pdf" width="100%" height="800px" style="border: none;"></iframe></div>`;
             } else {
+                console.log('Rendering image');
                 paragraphText = `<br /><div class="blogImg"><img class="innerImg" src="${getImg(target)}" alt="${target.fields.title}" /></div>`;
             }
             break;

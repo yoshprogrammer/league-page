@@ -130,6 +130,17 @@
         max-width: 100%;
     }
 
+    :global(.body .blogPdf) {
+        padding: 1em 2em;
+        display: flex;
+        justify-content: center;
+    }
+
+    :global(.body .blogPdf iframe) {
+        max-width: 100%;
+        min-height: 400px;
+    }
+
     :global(.body table) {
         margin: 1em 2em;
         min-width: 80%;
