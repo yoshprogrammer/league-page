@@ -142,6 +142,18 @@
         justify-content: center;
     }
 
+    :global(.body .blogPdf) {
+        margin: 1em 0;
+        padding: 0 2em;
+        display: flex;
+        justify-content: center;
+    }
+
+    :global(.body .blogPdf iframe) {
+        max-width: 100%;
+        min-height: 600px;
+    }
+
     :global(.body table) {
         margin: 1em 2em;
         min-width: 80%;

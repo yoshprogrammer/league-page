@@ -105,7 +105,12 @@ const genElementStart = (nodeType, indent, target) => {
             paragraphText = '<hr />'
             break;
         case 'embedded-asset-block':
-            paragraphText = `<br /><div class="blogImg"><img class="innerImg" src="${getImg(target)}" alt="${target.fields.title}" /></div>`
+            if (target?.fields?.file?.contentType === 'application/pdf') {
+                const pdfUrl = `https://${target.fields.file.url.split('//')[1]}`;
+                paragraphText = `<br /><div class="blogPdf"><iframe src="${pdfUrl}" type="application/pdf" width="100%" height="800px" style="border: none;"></iframe></div>`;
+            } else {
+                paragraphText = `<br /><div class="blogImg"><img class="innerImg" src="${getImg(target)}" alt="${target.fields.title}" /></div>`;
+            }
             break;
     
         default:
