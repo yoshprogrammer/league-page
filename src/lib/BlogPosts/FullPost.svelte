@@ -147,11 +147,40 @@
         padding: 0 2em;
         display: flex;
         justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
 
     :global(.body .blogPdf iframe) {
         max-width: 100%;
         min-height: 600px;
+    }
+
+    :global(.body .pdfMobileButton) {
+        display: none;
+        background-color: #0082c3;
+        color: white;
+        padding: 1em 2em;
+        border-radius: 0.5em;
+        text-decoration: none;
+        font-size: 1.1em;
+        font-weight: bold;
+        text-align: center;
+        transition: background-color 0.2s;
+    }
+
+    :global(.body .pdfMobileButton:hover) {
+        background-color: #00316b;
+    }
+
+    @media (max-width: 768px) {
+        :global(.body .pdfDesktopIframe) {
+            display: none;
+        }
+
+        :global(.body .pdfMobileButton) {
+            display: inline-block;
+        }
     }
 
     :global(.body table) {

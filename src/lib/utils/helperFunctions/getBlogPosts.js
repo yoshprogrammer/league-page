@@ -111,7 +111,10 @@ const genElementStart = (nodeType, indent, target) => {
                     ? `https:${target.fields.file.url}`
                     : target.fields.file.url;
                 console.log('Rendering PDF with URL:', pdfUrl);
-                paragraphText = `<br /><div class="blogPdf"><iframe src="${pdfUrl}" type="application/pdf" width="100%" height="800px" style="border: none;"></iframe></div>`;
+                paragraphText = `<br /><div class="blogPdf">
+                    <a href="${pdfUrl}" target="_blank" rel="noopener noreferrer" class="pdfMobileButton">Open PDF</a>
+                    <iframe src="${pdfUrl}" type="application/pdf" width="100%" height="800px" style="border: none;" class="pdfDesktopIframe"></iframe>
+                </div>`;
             } else {
                 console.log('Rendering image');
                 paragraphText = `<br /><div class="blogImg"><img class="innerImg" src="${getImg(target)}" alt="${target.fields.title}" /></div>`;
